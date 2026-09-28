@@ -24,5 +24,8 @@ Set a long random value for `Jwt:Key` (for example with `dotnet user-secrets`) b
 
 Documentation is in [`docs/`](docs).
 
+> **Note:** the app interface and the academic documentation in `docs/` are in Portuguese, as the project was developed at a Portuguese university.
+
+
 ---
 Built with AI-assisted development (Claude): we defined the requirements, guided the implementation and reviewed and tested the result.
