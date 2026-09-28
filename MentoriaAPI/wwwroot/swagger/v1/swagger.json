@@ -1,0 +1,26 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Mentoria API",
+    "version": "v1",
+    "description": "API para gestão automática de tutoria e mentoria."
+  },
+  "paths": {
+    "/api/auth/login": { "post": { "summary": "Login JWT", "responses": { "200": { "description": "OK" } } } },
+    "/api/auth/register": { "post": { "summary": "Registar utilizador", "responses": { "200": { "description": "OK" } } } },
+    "/api/users": { "get": { "summary": "Listar utilizadores", "responses": { "200": { "description": "OK" } } } },
+    "/api/students": { "get": { "summary": "Listar alunos", "responses": { "200": { "description": "OK" } } } },
+    "/api/mentors": { "get": { "summary": "Listar mentores", "responses": { "200": { "description": "OK" } } } },
+    "/api/tutors": { "get": { "summary": "Listar tutores", "responses": { "200": { "description": "OK" } } } },
+    "/api/matches": { "get": { "summary": "Listar matches", "responses": { "200": { "description": "OK" } } }, "post": { "summary": "Criar match", "responses": { "200": { "description": "OK" } } } },
+    "/api/matches/recommendations/{studentId}": { "get": { "summary": "Recomendações de mentor", "responses": { "200": { "description": "OK" } } } },
+    "/api/matches/generate/{studentId}": { "post": { "summary": "Gerar melhor match", "responses": { "200": { "description": "OK" } } } },
+    "/api/matches/metrics": { "get": { "summary": "Métricas", "responses": { "200": { "description": "OK" } } } },
+    "/api/tutoring/overview": { "get": { "summary": "Resumo PTM", "responses": { "200": { "description": "OK" } } } },
+    "/api/tutoring/distribute/{phase}": { "post": { "summary": "Distribuir fase PTM", "responses": { "200": { "description": "OK" } } } },
+    "/api/sessions": { "get": { "summary": "Listar sessões", "responses": { "200": { "description": "OK" } } }, "post": { "summary": "Criar sessão", "responses": { "200": { "description": "OK" } } } },
+    "/api/sessions/{id}/reschedule": { "put": { "summary": "Reagendar sessão", "responses": { "200": { "description": "OK" } } } },
+    "/api/sessions/{id}/status": { "put": { "summary": "Atualizar estado da sessão", "responses": { "200": { "description": "OK" } } } },
+    "/api/feedback": { "get": { "summary": "Listar feedback", "responses": { "200": { "description": "OK" } } }, "post": { "summary": "Criar feedback", "responses": { "200": { "description": "OK" } } } }
+  }
+}

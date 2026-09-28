@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mentoria API - Swagger</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 980px; margin: 32px auto; padding: 0 20px; color: #172033; line-height: 1.5; }
+    h1 { margin-bottom: 4px; }
+    .small { color: #5d6b82; margin-top: 0; }
+    table { border-collapse: collapse; width: 100%; margin-top: 24px; }
+    th, td { border-bottom: 1px solid #d8dee9; padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { background: #f4f6f9; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 4px; }
+    .badge { display: inline-block; min-width: 54px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Mentoria API</h1>
+  <p class="small">Documentação local dos endpoints principais. OpenAPI JSON: <a href="/swagger/v1/swagger.json">/swagger/v1/swagger.json</a></p>
+  <table>
+    <thead><tr><th>Método</th><th>Endpoint</th><th>Descrição</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge">POST</span></td><td><code>/api/auth/login</code></td><td>Autentica utilizador e devolve token JWT.</td></tr>
+      <tr><td><span class="badge">POST</span></td><td><code>/api/auth/register</code></td><td>Regista utilizador com perfil.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/users</code></td><td>Lista utilizadores.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/students</code></td><td>Lista alunos.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/mentors</code></td><td>Lista mentores.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/tutors</code></td><td>Lista tutores docentes.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/matches</code></td><td>Lista emparelhamentos.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/matches/recommendations/{studentId}</code></td><td>Gera recomendações de mentor para aluno.</td></tr>
+      <tr><td><span class="badge">POST</span></td><td><code>/api/matches/generate/{studentId}</code></td><td>Cria ou devolve o melhor match ativo.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/matches/metrics</code></td><td>Métricas do sistema.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/tutoring/overview</code></td><td>Resumo da distribuição PTM.</td></tr>
+      <tr><td><span class="badge">POST</span></td><td><code>/api/tutoring/distribute/{phase}</code></td><td>Executa distribuição por fase.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/sessions</code></td><td>Lista sessões.</td></tr>
+      <tr><td><span class="badge">POST</span></td><td><code>/api/sessions</code></td><td>Agenda sessão.</td></tr>
+      <tr><td><span class="badge">PUT</span></td><td><code>/api/sessions/{id}/status</code></td><td>Atualiza estado da sessão.</td></tr>
+      <tr><td><span class="badge">GET</span></td><td><code>/api/feedback</code></td><td>Lista feedback.</td></tr>
+      <tr><td><span class="badge">POST</span></td><td><code>/api/feedback</code></td><td>Regista feedback.</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

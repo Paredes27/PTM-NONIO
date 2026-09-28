@@ -1,0 +1,42 @@
+@MentoriaAPI_HostAddress = http://localhost:5256
+@AdminEmail = admin@mentoria.local
+@AdminPassword = Admin123!
+@JoaoEmail = joao@mentoria.local
+@JoaoPassword = Joao123!
+@ValentimEmail = valentim@mentoria.local
+@ValentimPassword = Valentim123!
+
+POST {{MentoriaAPI_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{AdminEmail}}",
+  "password": "{{AdminPassword}}"
+}
+
+###
+
+GET {{MentoriaAPI_HostAddress}}/api/users
+Authorization: Bearer {{token}}
+
+###
+
+GET {{MentoriaAPI_HostAddress}}/api/students
+Authorization: Bearer {{token}}
+
+###
+
+GET {{MentoriaAPI_HostAddress}}/api/mentors
+Authorization: Bearer {{token}}
+
+###
+
+GET {{MentoriaAPI_HostAddress}}/api/matches/recommendations/2
+Authorization: Bearer {{token}}
+
+###
+
+POST {{MentoriaAPI_HostAddress}}/api/matches/generate/2
+Authorization: Bearer {{token}}
+
+###

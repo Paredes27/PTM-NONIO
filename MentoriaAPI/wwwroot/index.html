@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PTM-NONIO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=menu-20260528-2" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <span class="brand-dot"></span>
+        <div>
+          <p class="eyebrow">PTM-NONIO</p>
+          <p class="brand-subtitle">Plataforma de coordenação de mentoria académica</p>
+        </div>
+      </div>
+      <div class="topbar-badges">
+        <span class="hero-tag">Demo pronta</span>
+        <span class="hero-tag">Distribuição por curso</span>
+        <span class="hero-tag">Tutores, mentores e Nónio</span>
+      </div>
+    </header>
+
+    <section class="hero-stage">
+      <div class="hero-copy-block">
+        <p class="eyebrow">Apresentação</p>
+        <h1>Gestão Automática de Tutoria e Mentoria</h1>
+        <p class="hero-copy">
+          Sistema web para atribuição automática de estudantes de primeiro ano a tutores docentes
+          e mentores do mesmo curso, com fases de matrícula e notificações operacionais.
+        </p>
+
+        <div class="hero-actions">
+          <a class="secondary hero-link" href="/swagger" target="_blank" rel="noreferrer">Explorar API</a>
+          <span class="hero-caption">Projeto preparado para demonstração ao vivo com perfis reais de teste.</span>
+        </div>
+
+        <div class="hero-feature-grid">
+          <article class="hero-feature-card">
+            <strong>Matching</strong>
+            <p>Alunos de 1.º ano distribuídos por curso, carga atual e mentores disponíveis.</p>
+          </article>
+          <article class="hero-feature-card">
+            <strong>Coordenação</strong>
+            <p>Tutores docentes podem acompanhar vários cursos e recebem os tutorandos via Nónio.</p>
+          </article>
+          <article class="hero-feature-card">
+            <strong>Acompanhamento</strong>
+            <p>Primeira, segunda e terceira fases atualizam abandonos e novas entradas.</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="hero-panel-head">
+          <div>
+            <p class="panel-label">Credenciais de demonstração</p>
+            <h2>Entrar na plataforma</h2>
+          </div>
+          <div class="demo-pulse">
+            <span></span>
+            <small>online</small>
+          </div>
+        </div>
+
+        <div class="credential-list">
+          <button class="credential-card" data-email="admin@mentoria.local" data-password="Admin123!">
+            <div class="credential-topline">
+              <strong>Admin</strong>
+              <span class="credential-badge">Coordenação</span>
+            </div>
+            <span>Visão global, métricas e ações de gestão.</span>
+            <code>admin@mentoria.local</code>
+          </button>
+          <button class="credential-card" data-email="joao@mentoria.local" data-password="Joao123!">
+            <div class="credential-topline">
+              <strong>João</strong>
+              <span class="credential-badge">Aluno</span>
+            </div>
+            <span>Perspetiva do estudante acompanhado.</span>
+            <code>joao@mentoria.local</code>
+          </button>
+          <button class="credential-card" data-email="valentim@mentoria.local" data-password="Valentim123!">
+            <div class="credential-topline">
+              <strong>Valentim</strong>
+              <span class="credential-badge">Mentor</span>
+            </div>
+            <span>Perspetiva do mentor e da sua carga atual.</span>
+            <code>valentim@mentoria.local</code>
+          </button>
+        </div>
+
+        <form id="login-form" class="stack-form login-form">
+          <label>
+            <span>Email</span>
+            <input id="email" type="email" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input id="password" type="password" required />
+          </label>
+          <button type="submit" class="primary wide-button">Entrar</button>
+        </form>
+        <p id="login-status" class="status-line"></p>
+      </aside>
+    </section>
+
+    <main class="layout">
+      <section id="app-shell" class="app-shell hidden">
+        <div class="toolbar surface">
+          <div class="toolbar-copy">
+            <p class="eyebrow">Sessão ativa</p>
+            <h2 id="welcome-title">Dashboard</h2>
+            <p id="session-subtitle" class="section-copy"></p>
+          </div>
+          <div class="toolbar-actions">
+            <span id="role-badge" class="role-badge"></span>
+            <a class="secondary" href="/swagger" target="_blank" rel="noreferrer">Swagger</a>
+            <button id="refresh-dashboard" class="secondary">Atualizar</button>
+            <button id="logout-button" class="ghost">Terminar sessão</button>
+          </div>
+        </div>
+
+        <nav class="app-menu" aria-label="Navegação da plataforma">
+          <button type="button" class="menu-tab active" data-view="overview-view">Resumo</button>
+          <button type="button" class="menu-tab" data-view="ptm-view">Distribuição PTM</button>
+          <button type="button" class="menu-tab" data-view="actions-view">Ações</button>
+          <button type="button" class="menu-tab" data-view="people-view">Pessoas</button>
+          <button type="button" class="menu-tab" data-view="tracking-view">Acompanhamento</button>
+        </nav>
+
+        <section id="overview-view" class="view-panel active">
+          <section class="executive-grid">
+            <article class="surface summary-panel">
+              <div class="section-heading">
+                <p class="eyebrow">Resumo</p>
+                <h3>Estado da plataforma</h3>
+                <p class="section-copy">Indicadores principais para contar rapidamente a história do sistema.</p>
+              </div>
+              <div id="summary-highlights" class="summary-highlights"></div>
+            </article>
+
+            <article class="surface timeline-panel">
+              <div class="section-heading">
+                <p class="eyebrow">Timeline</p>
+                <h3>Atividade recente e próxima</h3>
+                <p class="section-copy">Linha temporal pronta para explicar o ciclo completo de mentoria.</p>
+              </div>
+              <div id="activity-timeline" class="timeline-list"></div>
+            </article>
+          </section>
+
+          <section id="metrics-grid" class="metrics-grid"></section>
+        </section>
+
+        <section id="ptm-view" class="view-panel" hidden>
+          <article class="surface flow-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Tutoria</p>
+              <h3>Distribuição oficial PTM</h3>
+              <p class="section-copy">Resumo das atribuições por curso, fase, tutor, mentor e comunicação.</p>
+            </div>
+            <div id="tutoring-overview" class="assignment-table-wrap"></div>
+          </article>
+        </section>
+
+        <section id="actions-view" class="view-panel" hidden>
+          <section class="workspace-grid">
+            <article class="surface showcase-panel">
+              <div class="section-heading">
+                <p class="eyebrow">Demonstração</p>
+                <h3>Ações rápidas para apresentação</h3>
+                <p class="section-copy">Fluxo guiado para mostrar o sistema a funcionar sem perder ritmo.</p>
+              </div>
+              <div class="quick-actions">
+                <button id="quick-generate-match" class="primary">Gerar match para o aluno selecionado</button>
+                <button id="quick-distribute-tutoring" class="secondary">Distribuir fase selecionada</button>
+                <button id="quick-complete-session" class="secondary">Concluir próxima sessão</button>
+                <button id="quick-export-state" class="secondary">Exportar estado em JSON</button>
+              </div>
+              <label class="phase-picker">
+                <span>Fase</span>
+                <select id="phase-select">
+                  <option value="1">1.ª fase</option>
+                  <option value="2" selected>2.ª fase</option>
+                  <option value="3">3.ª fase</option>
+                </select>
+              </label>
+              <p id="quick-action-status" class="status-line"></p>
+            </article>
+
+            <article class="surface flow-panel">
+              <div class="section-heading">
+                <p class="eyebrow">Matching</p>
+                <h3>Gerar emparelhamento automático</h3>
+              </div>
+              <form id="match-form" class="stack-form compact">
+                <label>
+                  <span>Aluno</span>
+                  <select id="student-select"></select>
+                </label>
+                <button type="submit" class="primary wide-button">Gerar melhor match</button>
+              </form>
+              <div id="recommendation-box" class="info-box"></div>
+            </article>
+          </section>
+        </section>
+
+        <section id="people-view" class="view-panel" hidden>
+          <section class="data-grid">
+            <article class="surface">
+              <div class="section-heading">
+                <p class="eyebrow">Alunos</p>
+                <h3>Perfis académicos</h3>
+              </div>
+              <div id="students-list" class="people-table-wrap"></div>
+            </article>
+
+            <article class="surface">
+              <div class="section-heading">
+                <p class="eyebrow">Mentores</p>
+                <h3>Capacidade e especialização</h3>
+              </div>
+              <div id="mentors-list" class="card-list"></div>
+            </article>
+
+            <article class="surface">
+              <div class="section-heading">
+                <p class="eyebrow">Tutores</p>
+                <h3>Docentes por curso</h3>
+              </div>
+              <div id="tutors-list" class="card-list"></div>
+            </article>
+
+            <article class="surface">
+              <div class="section-heading">
+                <p class="eyebrow">Emparelhamentos</p>
+                <h3>Matches ativos</h3>
+              </div>
+              <div id="matches-list" class="card-list"></div>
+            </article>
+          </section>
+        </section>
+
+        <section id="tracking-view" class="view-panel" hidden>
+          <section class="workspace-grid">
+            <article class="surface flow-panel">
+              <div class="section-heading">
+                <p class="eyebrow">Sessões</p>
+                <h3>Agendar sessão</h3>
+              </div>
+              <form id="session-form" class="stack-form compact">
+                <label>
+                  <span>Emparelhamento</span>
+                  <select id="match-select"></select>
+                </label>
+                <label>
+                  <span>Data e hora</span>
+                  <input id="session-date" type="datetime-local" required />
+                </label>
+                <div class="inline-form-grid">
+                  <label>
+                    <span>Duração (min)</span>
+                    <input id="session-duration" type="number" min="15" value="60" required />
+                  </label>
+                  <label>
+                    <span>Tópico</span>
+                    <input id="session-topic" type="text" required />
+                  </label>
+                </div>
+                <label>
+                  <span>Notas</span>
+                  <textarea id="session-notes" rows="3"></textarea>
+                </label>
+                <button id="session-submit-button" type="submit" class="primary wide-button">Criar sessão</button>
+                <button id="session-cancel-edit" type="button" class="ghost wide-button hidden">Cancelar remarcação</button>
+                <p id="session-form-status" class="status-line"></p>
+              </form>
+            </article>
+
+            <article class="surface flow-panel">
+              <div class="section-heading">
+                <p class="eyebrow">Feedback</p>
+                <h3>Registar avaliação</h3>
+              </div>
+              <form id="feedback-form" class="stack-form compact">
+                <label>
+                  <span>Sessão</span>
+                  <select id="feedback-session-select"></select>
+                </label>
+                <div class="inline-form-grid">
+                  <label>
+                    <span>Autor</span>
+                    <select id="feedback-author-select"></select>
+                  </label>
+                  <label>
+                    <span>Destino</span>
+                    <select id="feedback-target-select"></select>
+                  </label>
+                </div>
+                <label>
+                  <span>Rating</span>
+                  <input id="feedback-rating" type="number" min="1" max="5" value="5" required />
+                </label>
+                <label>
+                  <span>Comentário</span>
+                  <textarea id="feedback-comment" rows="3"></textarea>
+                </label>
+                <button type="submit" class="primary wide-button">Guardar feedback</button>
+                <p id="feedback-form-status" class="status-line"></p>
+              </form>
+            </article>
+          </section>
+
+          <section class="data-grid">
+            <article class="surface">
+              <div class="section-heading">
+                <p class="eyebrow">Sessões</p>
+                <h3>Agenda</h3>
+              </div>
+              <div id="sessions-list" class="card-list"></div>
+            </article>
+
+            <article class="surface">
+              <div class="section-heading">
+                <p class="eyebrow">Feedback</p>
+                <h3>Avaliações</h3>
+              </div>
+              <div id="feedback-list" class="card-list feedback-stack"></div>
+            </article>
+          </section>
+        </section>
+      </section>
+    </main>
+  </div>
+
+    <script src="/app.js?v=matching-20260613-1"></script>
+</body>
+</html>
